@@ -60,12 +60,12 @@ $content_width: 500pt;
 
 body {
   color: $text_color;
+  background: $header_bg url(../img/bg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 header {
-  background: $header_bg url(../img/bg.jpg);
-  background-size: cover;
-
   height: 100%;
   width: 100%;
   position: fixed;
@@ -126,6 +126,7 @@ header {
   z-index: 1;
   top: 66%;
   width: 100%;
+  overflow: hidden;
 
   .audimax {
     z-index: 2;
@@ -194,6 +195,9 @@ footer {
     div {
       flex: 1;
       -webkit-box-flex: 1;
+      img {
+        max-width: 90%;
+      }
     }
   }
 }
