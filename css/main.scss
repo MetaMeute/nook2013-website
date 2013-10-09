@@ -1,53 +1,35 @@
 $section_bg: rgba(#fff, 0.985);
 $text_color: #3D4243;
 
-$header_fg: #647CCC;
+$header_fg: #F0A818;
+$header_fg2: #73B0E6;
+$glow: #FFFDC5;
 $header_bg: #0B0D1A;
 $content_width: 500pt;
 
 @-webkit-keyframes rotating-function {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-  }
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
 }
 
 @-moz-keyframes rotating-function {
-  from {
-    -moz-transform: rotate(0deg);
-  }
-  to {
-    -moz-transform: rotate(360deg);
-  }
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
 }
 
 @-ms-keyframes rotating-function {
-  from {
-    -ms-transform: rotate(0deg);
-  }
-  to {
-    -ms-transform: rotate(360deg);
-  }
+  from { -ms-transform: rotate(0deg); }
+  to { -ms-transform: rotate(360deg); }
 }
 
 @-o-keyframes rotating-function {
-  from {
-    -o-transform: rotate(0deg);
-  }
-  to {
-    -o-transform: rotate(360deg);
-  }
+  from { -o-transform: rotate(0deg); }
+  to { -o-transform: rotate(360deg); }
 }
 
 @keyframes rotating-function {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 @mixin rotating($t) {
@@ -58,11 +40,43 @@ $content_width: 500pt;
           animation: rotating-function $t linear infinite;
 }
 
+@-webkit-keyframes pulse-function {
+  $c: $glow;
+  from { text-shadow: 0 0 0em rgba($c, 0); }
+  50% { text-shadow: 0 0 1em rgba($c, 1); }
+  to { text-shadow: 0 0 0em rgba($c, 0); }
+}
+
+@keyframes pulse-function {
+  $c: $glow;
+  from { text-shadow: 0 0 0em rgba($c, 0); }
+  50% { text-shadow: 0 0 1em rgba($c, 1); }
+  to { text-shadow: 0 0 0em rgba($c, 0); }
+}
+
+@mixin pulse($t) {
+  -webkit-animation: pulse-function $t linear infinite;
+  animation: pulse-function $t linear infinite;
+}
+
+
 body {
   color: $text_color;
-  background: $header_bg url(../img/bg.jpg);
-  background-size: cover;
-  background-attachment: fixed;
+  background-color: $header_bg;
+
+  &:before {
+    @include rotating(150s);
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    left: -50%;
+    top: -50%;
+    z-index: -1;
+
+    background-image: url(../img/bg.jpg);
+    background-size: contain;
+  }
 }
 
 header {
@@ -93,10 +107,14 @@ header {
     text-align: center;
 
     color: $header_fg;
+    text-shadow: 0 0 2em rgba($header_fg, 1);
+
+    @include pulse(7s);
   }
 
   p + p {
-    color: lighten($header_fg, 20);
+    color: $header_fg2;
+    text-shadow: 0 0 2em rgba($header_fg2, 1);
   }
 
   .links {
@@ -142,7 +160,7 @@ header {
 }
 
 article {
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.9);
 
   text-align: center;
 
