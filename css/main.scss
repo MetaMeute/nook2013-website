@@ -7,6 +7,16 @@ $glow: #FFFDC5;
 $header_bg: #0B0D1A;
 $content_width: 500pt;
 
+@font-face {
+  font-family: 'dejavu';
+  src: url('dejavu_b.ttf');
+}
+
+@font-face {
+  font-family: 'nimbus';
+  src: url('nimbus_bc.ttf');
+}
+
 @-webkit-keyframes rotating-function {
   from { -webkit-transform: rotate(0deg); }
   to { -webkit-transform: rotate(360deg); }
@@ -96,6 +106,46 @@ header {
     right: .25em;
     font-size: .7em;
     opacity: 0.7;
+  }
+
+  h1 {
+    @include pulse(7s);
+    $angle: -14deg;
+    -webkit-transform: rotate($angle);
+    transform: rotate($angle);
+
+    margin-bottom: 3em;
+    position: relative;
+
+    .meta, .nook {
+      font-family: dejavu;
+      font-size: 48pt;
+      padding: 0;
+      margin: 0;
+    }
+
+    .meta, .engages {
+      color: #a3c7e7;
+    }
+
+    .engages, .night {
+      position: relative;
+      top: -8pt;
+      display: block;
+      padding: 0;
+      margin: 0;
+      font-family: nimbus;
+      font-size: 16pt;
+      letter-spacing: 0pt;
+    }
+
+    .engages {
+      left: 3pt;
+    }
+
+    .night {
+      left: 140pt;
+    }
   }
 
   p {
