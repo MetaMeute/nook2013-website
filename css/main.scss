@@ -90,6 +90,7 @@ body {
 }
 
 header {
+  box-sizing: border-box;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -114,12 +115,14 @@ header {
     -webkit-transform: rotate($angle);
     transform: rotate($angle);
 
+    display: inline-block;
+
     margin-bottom: 3em;
     position: relative;
 
     .meta, .nook {
       font-family: dejavu;
-      font-size: 48pt;
+      font-size: 2em;
       padding: 0;
       margin: 0;
     }
@@ -130,21 +133,21 @@ header {
 
     .engages, .night {
       position: relative;
-      top: -8pt;
+      top: -0.5em;
       display: block;
       padding: 0;
       margin: 0;
       font-family: nimbus;
-      font-size: 16pt;
+      font-size: 0.6em;
       letter-spacing: 0pt;
     }
 
     .engages {
-      left: 3pt;
+      left: 0.3em;
     }
 
     .night {
-      left: 140pt;
+      left: 8.7em;
     }
   }
 
@@ -201,10 +204,10 @@ header {
     margin: 0 auto 0 auto;
     position: relative;
     bottom: -20px;
-    padding-left: 300px;
+    padding-left: 50%;
     display: block;
     right: 0;
-    width: 400px;
+    max-width: 400px;
     height: 140px;
   }
 }
@@ -296,6 +299,7 @@ address {
 @media only screen and (max-height: 600px) {
   header {
     position: inherit;
+    font-size: 9pt;
   }
 
   .content {
