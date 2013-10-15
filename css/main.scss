@@ -230,6 +230,21 @@ article {
   p {
     line-height: 1.8em;
   }
+
+  a {
+    color: $header_fg2;
+    text-decoration: none;
+
+    &:active {
+      color: darken($header_fg2, 40);
+      text-decoration: underline;
+    }
+
+    &:hover {
+      color: darken($header_fg2, 20);
+      text-decoration: underline;
+    }
+  }
 }
 
 .grid {
@@ -244,6 +259,23 @@ article {
     &:last-child {
       padding-right: 0;
     }
+  }
+
+  .middle {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+
+    display: box;
+    box-orient: vertical;
+    box-pack: center;
+    box-align: center;
   }
 }
 
