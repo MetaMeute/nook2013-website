@@ -1,10 +1,11 @@
+---
+---
 $section_bg: rgba(#fff, 0.985);
 $text_color: #3D4243;
 
-$header_fg: #F0A818;
-$header_fg2: #73B0E6;
-$glow: #FFFDC5;
-$header_bg: #0B0D1A;
+$header_fg: #fff;
+$header_fg2: #fff;
+$header_bg: #d20000;
 $content_width: 500pt;
 
 @font-face {
@@ -17,65 +18,11 @@ $content_width: 500pt;
   src: url('nimbus_bc.ttf');
 }
 
-@-webkit-keyframes rotating-function {
-  from { -webkit-transform: rotate(0deg); }
-  to { -webkit-transform: rotate(360deg); }
-}
-
-@-moz-keyframes rotating-function {
-  from { -moz-transform: rotate(0deg); }
-  to { -moz-transform: rotate(360deg); }
-}
-
-@-ms-keyframes rotating-function {
-  from { -ms-transform: rotate(0deg); }
-  to { -ms-transform: rotate(360deg); }
-}
-
-@-o-keyframes rotating-function {
-  from { -o-transform: rotate(0deg); }
-  to { -o-transform: rotate(360deg); }
-}
-
-@keyframes rotating-function {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@mixin rotating($t) {
-  -webkit-animation: rotating-function $t linear infinite;
-     -moz-animation: rotating-function $t linear infinite;
-      -ms-animation: rotating-function $t linear infinite;
-       -o-animation: rotating-function $t linear infinite;
-          animation: rotating-function $t linear infinite;
-}
-
-@-webkit-keyframes pulse-function {
-  $c: $glow;
-  from { text-shadow: 0 0 0em rgba($c, 0); }
-  50% { text-shadow: 0 0 1em rgba($c, 1); }
-  to { text-shadow: 0 0 0em rgba($c, 0); }
-}
-
-@keyframes pulse-function {
-  $c: $glow;
-  from { text-shadow: 0 0 0em rgba($c, 0); }
-  50% { text-shadow: 0 0 1em rgba($c, 1); }
-  to { text-shadow: 0 0 0em rgba($c, 0); }
-}
-
-@mixin pulse($t) {
-  -webkit-animation: pulse-function $t linear infinite;
-  animation: pulse-function $t linear infinite;
-}
-
-
 body {
   color: $text_color;
   background-color: $header_bg;
 
   &:before {
-    @include rotating(150s);
     content: "";
     position: fixed;
     width: 200%;
@@ -84,18 +31,16 @@ body {
     top: -50%;
     z-index: -1;
 
-    background-image: url(../img/bg.jpg);
     background-size: contain;
   }
 }
 
 header {
+  margin: 0 auto;
+  max-width: 80em;
   box-sizing: border-box;
   height: 100%;
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
   z-index: -1;
   color: #fcfcfc;
   padding: 1em;
@@ -110,7 +55,6 @@ header {
   }
 
   h1 {
-    @include pulse(7s);
     $angle: -14deg;
     -webkit-transform: rotate($angle);
     transform: rotate($angle);
@@ -128,7 +72,7 @@ header {
     }
 
     .meta, .engages {
-      color: #a3c7e7;
+      color: #FFF8C5;
     }
 
     .engages, .night {
@@ -160,14 +104,10 @@ header {
     text-align: center;
 
     color: $header_fg;
-    text-shadow: 0 0 2em rgba($header_fg, 1);
-
-    @include pulse(7s);
   }
 
   p + p {
     color: $header_fg2;
-    text-shadow: 0 0 2em rgba($header_fg2, 1);
   }
 
   .links {
@@ -193,9 +133,7 @@ header {
 }
 
 .content {
-  position: absolute;
   z-index: 1;
-  top: 66%;
   width: 100%;
   overflow: hidden;
 
@@ -213,7 +151,9 @@ header {
 }
 
 article {
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.9);
+  max-width: 80em;
+  margin: 0 auto;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
 
   text-align: center;
 
@@ -342,4 +282,8 @@ address {
 
 #map {
   height: 30em;
+}
+
+.schedule {
+  min-width: 100%;
 }
