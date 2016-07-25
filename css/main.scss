@@ -1,6 +1,6 @@
 ---
 ---
-$section_bg: rgba(#fff, 0.985);
+$section_bg: rgba(#fff, 1);
 $text_color: #3D4243;
 
 $header_fg: #fff;
@@ -31,6 +31,7 @@ body {
     top: -50%;
     z-index: -1;
 
+    background-image: url('../bg.jpg');
     background-size: contain;
   }
 }
@@ -153,7 +154,7 @@ header {
 article {
   max-width: 80em;
   margin: 0 auto;
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.7);
 
   text-align: center;
 
