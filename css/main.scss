@@ -6,6 +6,7 @@ $metanook_color_transp: rgba(81,166,253,0.90);
 
 $section_bg: #FFFFFF;
 $text_color: #3D4243;
+$link_color: #214366;
 
 $header_fg: #fff;
 $header_fg2: #fff;
@@ -180,16 +181,16 @@ article {
   }
 
   a {
-    color: $header_fg2;
+    color: $link_color;
     text-decoration: none;
 
     &:active {
-      color: darken($header_fg2, 40);
+      color: darken($link_color, 40);
       text-decoration: underline;
     }
 
     &:hover {
-      color: darken($header_fg2, 20);
+      color: darken($link_color, 20);
       text-decoration: underline;
     }
   }
