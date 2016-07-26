@@ -1,11 +1,15 @@
 ---
 ---
-$section_bg: rgba(#fff, 1);
+
+$metanook_color: #51A6FD;
+$metanook_color_transp: rgba(81,166,253,0.90);
+
+$section_bg: #FFFFFF;
 $text_color: #3D4243;
 
 $header_fg: #fff;
 $header_fg2: #fff;
-$header_bg: #d20000;
+$header_bg: $metanook_color;
 $content_width: 500pt;
 
 @font-face {
@@ -31,7 +35,10 @@ body {
     top: -50%;
     z-index: -1;
 
-    background-image: url('../bg.jpg');
+    background:
+    	linear-gradient(
+    		$metanook_color_transp, $metanook_color_transp
+    	), url('../img/bg_people.jpg');
     background-size: contain;
   }
 }
@@ -186,6 +193,12 @@ article {
       text-decoration: underline;
     }
   }
+}
+
+#call-for-participation {
+	p {
+    text-align: justify;
+	}
 }
 
 .grid {
